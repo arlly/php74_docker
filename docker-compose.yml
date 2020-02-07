@@ -1,0 +1,30 @@
+version: '2'
+
+services:
+  db:
+    container_name: php74example-db
+    image: mysql:5.7
+    volumes:
+      - ./mysql/:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: your_rootpassword
+      MYSQL_DATABASE: php74example
+      MYSQL_USER: arlly
+      MYSQL_PASSWORD: fxc-70h
+
+  web:
+    container_name: php74example-web
+    build: ./web
+    depends_on:
+      - db
+    volumes:
+      - ./src:/var/www/html/public
+    ports:
+      - '80:80'
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:4.5.3.1-1
+    ports:
+        - "8080:8080"
+    links:
+        - "db"
