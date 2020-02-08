@@ -44,4 +44,23 @@ Route::group([
 
     Route::get('/', 'AdminController@index')->name('admin.home');
     Route::get('/home', 'AdminController@index')->name('admin.home');
+
+    /**
+     * information
+     */
+    Route::group([
+        'prefix' => 'information'
+    ], function () {
+        Route::get('/', 'InformationController@index')->name('admin.information.index');
+        Route::post('/', 'InformationController@indexPost');
+        Route::get('create', 'InformationController@create')->name('admin.information.create');
+        Route::post('create', 'InformationController@store');
+        Route::get('edit/{id}', 'InformationController@edit')->name('admin.information.edit');
+        Route::post('edit/{id}', 'InformationController@update');
+        Route::get('destroy/{id}', 'InformationController@destroy')->name('admin.information.destroy');
+        Route::get('publish/{id}', 'InformationController@publish')->name('admin.information.publish');
+
+        Route::get('copy/{id}', 'InformationController@copy')->name('admin.information.copy');
+        Route::post('copy/{id}', 'InformationController@copyPost');
+    });
 });

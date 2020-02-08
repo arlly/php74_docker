@@ -4,8 +4,8 @@ services:
   db:
     container_name: php74example-db
     image: mysql:5.7
-    volumes:
-      - ./mysql/:/var/lib/mysql
+    # volumes:
+    #   - ./mysql/:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: your_rootpassword
       MYSQL_DATABASE: php74example
