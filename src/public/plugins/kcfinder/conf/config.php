@@ -15,8 +15,8 @@
 /* IMPORTANT!!! Do not comment or remove uncommented settings in this file
    even if you are using session configuration.
    See http://kcfinder.sunhater.com/install for setting descriptions */
-require __DIR__ . '/../../../bootstrap/autoload.php';
-$app = require_once __DIR__ . '/../../../bootstrap/app.php';
+require __DIR__ . '/../../../../bootstrap/autoload.php';
+$app = require_once __DIR__ . '/../../../../bootstrap/app.php';
 
 $app->make('Illuminate\Contracts\Http\Kernel')
     ->pushMiddleware(\App\Http\Middleware\EncryptCookies::class)
